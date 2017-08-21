@@ -1,6 +1,4 @@
-package tree;
-
-import queue.Queue;
+package datastructure;
 
 public class BinaryTree {
 	
@@ -88,7 +86,7 @@ public class BinaryTree {
 		queue.enqueue(current);
 		
 		do {
-			node.Node<Node<Integer>> node = queue.dequeue();
+			datastructure.LLNode<Node<Integer>> node = queue.dequeue();
 			current = node.getData();
 			
 			if (current.getData() == data) {

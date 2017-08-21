@@ -1,11 +1,9 @@
-package queue;
-
-import node.Node;
+package datastructure;
 
 public class Queue<T> {
 
-	Node<T> head;
-	Node<T> tail;
+	LLNode<T> head;
+	LLNode<T> tail;
 	
 	public Queue() {}
 	
@@ -14,7 +12,7 @@ public class Queue<T> {
 	}
 	
 	public void enqueue(T data) {
-		Node<T> node = new Node<>(data);
+		LLNode<T> node = new LLNode<>(data);
 		if (head == null && tail == null) {
 			head = tail = node;
 		} else {
@@ -24,8 +22,8 @@ public class Queue<T> {
 		}
 	}
 	
-	public Node<T> dequeue() {
-		Node<T> node = head;
+	public LLNode<T> dequeue() {
+		LLNode<T> node = head;
 		if (node != null) {
 			if (head == tail) {
 				head = tail = head.next;

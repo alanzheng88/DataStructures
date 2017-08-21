@@ -1,13 +1,12 @@
-package linkedlist;
+package datastructure;
 
 import java.util.Iterator;
-import node.Node;
 
 public class DoubleLinkedList {
 
-	private class DoubleLinkedListIterator implements Iterator<Node<Integer>> {
+	private class DoubleLinkedListIterator implements Iterator<LLNode<Integer>> {
 
-		private Node<Integer> currentNode;
+		private LLNode<Integer> currentNode;
 		
 		public DoubleLinkedListIterator() {
 			currentNode = head;
@@ -19,8 +18,8 @@ public class DoubleLinkedList {
 		}
 
 		@Override
-		public Node<Integer> next() {
-			Node<Integer> lastNode = currentNode;
+		public LLNode<Integer> next() {
+			LLNode<Integer> lastNode = currentNode;
 			if (hasNext()) {
 				currentNode = currentNode.next;
 				return lastNode;
@@ -29,24 +28,24 @@ public class DoubleLinkedList {
 		}
 	}
 	
-	private Node<Integer> head;
-	private Node<Integer> tail;
+	private LLNode<Integer> head;
+	private LLNode<Integer> tail;
 	
 	public DoubleLinkedList() {
 		head = null;
 		tail = null;
 	}
 	
-	public Node<Integer> getHead() {
+	public LLNode<Integer> getHead() {
 		return head;
 	}
 	
-	public Node<Integer> getTail() {
+	public LLNode<Integer> getTail() {
 		return tail;
 	}
 	
 	public void addNode(int data) {
-		Node<Integer> node = new Node<>(data);
+		LLNode<Integer> node = new LLNode<>(data);
 		
 		if (head == null && tail == null) {
 			head = node;
@@ -59,7 +58,7 @@ public class DoubleLinkedList {
 	}
 	 
 	public void deleteNode(int data) {
-		Node<Integer> current = head;
+		LLNode<Integer> current = head;
 		while (current != null) {
 			if (current.getData() == data) {
 				current.prev.next = current.next;
@@ -70,7 +69,7 @@ public class DoubleLinkedList {
 		}
 	}
 
-	public Iterator<Node<Integer>> iterator() {
+	public Iterator<LLNode<Integer>> iterator() {
 		return new DoubleLinkedListIterator();
 	}
 }

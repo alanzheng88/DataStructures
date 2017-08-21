@@ -1,20 +1,18 @@
-package stack;
-
-import node.Node;
+package datastructure;
 
 public class Stack<T> {
 
-	Node<T> top;
+	LLNode<T> top;
 	
 	public void push(T data) {
-		Node<T> node = new Node<>(data);
+		LLNode<T> node = new LLNode<>(data);
 		node.next = top;
 		top = node;
 	}
 	
-	public Node<T> pop() {
+	public LLNode<T> pop() {
 		if (top != null) {
-			Node<T> popped = top;
+			LLNode<T> popped = top;
 			top = top.next;
 			return popped;
 		}
